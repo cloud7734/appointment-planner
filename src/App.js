@@ -6,23 +6,10 @@ import { ContactsPage } from "./containers/contactsPage/ContactsPage";
 
 function App() {
   // empty state for contact object array
-  const [ contacts, setContacts ] = useState([
-    {
-      name: "Bob Dole",
-      phone: "123-456-7890",
-      email: "BOBdOLE69@uknow.com"
-    }
-  ])
+  const [ contacts, setContacts ] = useState([{}])
 
   // empty state for appointment object array
-  const [ appointments, setAppointments ] = useState([
-    {
-      title: "Product Launch Party",
-      contact: "Bob Dole",
-      date: "4/20/69",
-      time: "11:11pm"
-    }
-  ])
+  const [ appointments, setAppointments ] = useState([{}])
 
   const ROUTES = {
     CONTACTS: "/contacts",
@@ -60,7 +47,7 @@ function App() {
           </Route>
           <Route path={ROUTES.APPOINTMENTS}>
             {/* Add props to AppointmentsPage */}
-            <AppointmentsPage appointments={appointments} onSubmit={addAppointments}/>
+            <AppointmentsPage contacts={contacts} appointments={appointments} onSubmit={addAppointments}/>
           </Route>
         </Switch>
       </main>
