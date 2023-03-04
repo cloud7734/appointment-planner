@@ -6,10 +6,23 @@ import { ContactsPage } from "./containers/contactsPage/ContactsPage";
 
 function App() {
   // empty state for contact object array
-  const [contact, setContact] = useState([])
+  const [ contacts, setContacts ] = useState([
+    {
+      name: "Bob Dole",
+      phone: "123-456-7890",
+      email: "BOBdOLE69@uknow.com"
+    }
+  ])
 
   // empty state for appointment object array
-  const [appointment, setAppointment] = useState([])
+  const [ appointments, setAppointments ] = useState([
+    {
+      title: "Product Launch Party",
+      contact: "Bob Dole",
+      date: "4/20/69",
+      time: "11:11pm"
+    }
+  ])
 
   const ROUTES = {
     CONTACTS: "/contacts",
@@ -17,13 +30,13 @@ function App() {
   };
 
   // add contact function
-  const addContact = (newContact) => {
-    setContact((prev) => [...prev, newContact]);
+  const addContacts = (newContact) => {
+    setContacts((prev) => [...prev, newContact]);
   }
 
   // add appointment function
-  const addAppointment = (newAppointment) => {
-    setAppointment((prev) => [...prev, newAppointment]);
+  const addAppointments = (newAppointment) => {
+    setAppointments((prev) => [...prev, newAppointment]);
   }
 
   return (
@@ -43,11 +56,11 @@ function App() {
           </Route>
           <Route path={ROUTES.CONTACTS}>
              {/* Add props to ContactsPage */}
-            <ContactsPage contact={contact} onSubmit={addContact}/>
+            <ContactsPage contacts={contacts} onSubmit={addContacts}/>
           </Route>
           <Route path={ROUTES.APPOINTMENTS}>
             {/* Add props to AppointmentsPage */}
-            <AppointmentsPage appointment={appointment} onSubmit={addAppointment}/>
+            <AppointmentsPage appointments={appointments} onSubmit={addAppointments}/>
           </Route>
         </Switch>
       </main>
